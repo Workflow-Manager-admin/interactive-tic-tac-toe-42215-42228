@@ -102,3 +102,197 @@
     font-size: 12px;
   }
 }
+
+/* --- Custom Tic Tac Toe Game Styling --- */
+
+.tic-tac-toe-app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-primary, #fff);
+  min-height: 100vh;
+}
+
+/* Container for centering and spacing */
+.container-ttt {
+  background: var(--bg-secondary,#f8f9fa);
+  border-radius: 28px;
+  padding: 2.5rem 2rem 1.5rem 2rem;
+  box-shadow: 0 2px 18px 0 rgba(60,72,88,0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 340px;
+  max-width: 98vw;
+  min-height: 470px;
+  margin: 3vw auto;
+}
+
+.ttt-title {
+  font-size: 2.3rem;
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.score-board {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.6rem;
+}
+
+.score-box {
+  padding: 0.6em 1.3em;
+  border-radius: 12px;
+  border: 2px solid;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: #fff;
+  box-shadow: 0 1px 2px #00000012;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  min-width: 65px;
+  justify-content: space-between;
+}
+.score-x { border-color: #1976d2; }
+.score-o { border-color: #424242; }
+
+.score-num {
+  font-size: 1.09rem;
+  background: #f7fbfc;
+  border-radius: 6px;
+  padding: 0 0.6em;
+}
+
+/* Main 3x3 board */
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.board-row {
+  display: flex;
+}
+
+/* Square styling */
+.square {
+  width: 68px;
+  height: 68px;
+  font-size: 2.4rem;
+  font-weight: 600;
+  background: var(--bg-primary, #fff);
+  border: 2.4px solid #e9ecef;
+  outline: none;
+  border-radius: 9px;
+  margin: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.16s, color 0.16s, border-color 0.18s;
+  user-select: none;
+  cursor: pointer;
+}
+.square:disabled {
+  cursor: not-allowed;
+  opacity: 0.57;
+  background: #f2f2f2;
+}
+
+/* Board highlight for winning */
+.square[style*="background: #ffeb3b"] {
+  /* accent color for winner squares */
+  animation: winner-blink 0.46s alternate 4;
+  box-shadow: 0 0 0 3px #ffeb3b70;
+}
+@keyframes winner-blink {
+  0%   { background: #ffeb3b; }
+  100% { background: #fffbe7; }
+}
+
+/* Game status and controls */
+.status {
+  font-size: 1.25rem;
+  margin-top: 0.9em;
+  min-height: 32px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.18rem;
+}
+
+/* Modern buttons */
+.ttt-btn, .ttt-btn-outline {
+  background: #1976d2;
+  color: #fff;
+  padding: 0.64em 1.2em;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.04rem;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 6px #08233e15;
+  transition: background 0.23s, color 0.23s, border 0.2s, transform 0.13s;
+}
+.ttt-btn:hover, .ttt-btn:focus {
+  background: #1356a3;
+  transform: translateY(-1.5px) scale(1.03);
+  color: #ffeb3b;
+}
+.ttt-btn:active {
+  transform: translateY(0);
+}
+
+/* Outline secondary button */
+.ttt-btn-outline {
+  background: #fff;
+  color: #424242;
+  border: 2px solid #424242;
+}
+.ttt-btn-outline:hover, .ttt-btn-outline:focus {
+  background: #f5f5f5;
+  color: #1976d2;
+  border-color: #1976d2;
+}
+
+.ttt-footer {
+  margin-top: 1.2rem;
+  color: #b0bed9;
+  font-size: 0.93rem;
+  opacity: 0.78;
+}
+
+/* Responsive layout for mobile */
+@media (max-width: 600px) {
+  .container-ttt {
+    padding: 0.8rem 0.85rem 0.5rem 0.85rem;
+    border-radius: 15px;
+    min-width: unset;
+    min-height: unset;
+  }
+  .board-row .square {
+    width: 46vw;
+    max-width: 63px;
+    height: 14vw;
+    max-height: 63px;
+    font-size: 1.45rem;
+  }
+  .board-row {
+    justify-content: center;
+  }
+  .score-board {
+    gap: 0.8rem;
+    margin-bottom: 1.3rem;
+  }
+  .ttt-title {
+    font-size: 1.7rem;
+    margin-bottom: 0.45rem;
+  }
+}
+
